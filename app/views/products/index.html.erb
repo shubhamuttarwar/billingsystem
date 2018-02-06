@@ -18,7 +18,7 @@
 <% @product.each do |cat| %>
 <tr>
 	<td><%= cat.code %></td>
-	<td><%= cat.product_category %></td>
+	<td><%= cat.category.categoryname %></td>
 	<td><%= cat.product_name %></td>
 	<td><%= currency(cat.unit_price) %></td>
 	<td><%= cat.sku %></td>
