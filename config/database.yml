@@ -1,0 +1,30 @@
+default: &default
+  adapter: postgresql
+  encoding: UTF-8
+  host: localhost
+  pool: 5
+  timeout: 5000
+
+development:
+  <<: *default
+  database: billingsystem_development
+  encoding: UTF-8
+  username: chris
+  password: shubham95
+
+# Warning: The database defined as "test" will be erased and
+# re-generated from your development database when you run "rake".
+# Do not set this db to the same as development or production.
+test:
+  <<: *default
+  database: billingsystem_test
+  encoding: UTF_8
+  username: chris
+  password: shubham95
+
+production:
+  <<: *default
+  database: billingsystem_production
+  encoding: UTF-8
+  username: chris
+  password: shubham95

@@ -1,0 +1,18 @@
+
+<p>
+  <strong>Product Code:</strong>
+  <%= @product.code %>
+</p>
+<p>
+  <strong>Product Name:</strong>
+  <%= @product.product_name %>
+</p>
+<p>
+  <strong>Price Per Unit:</strong>
+  <%= currency(@product.unit_price)	 %>
+</p>
+<p>
+  <strong>SKU:</strong>
+  <%= @product.sku %>
+</p>
+ <%= link_to 'Back', products_path %>
