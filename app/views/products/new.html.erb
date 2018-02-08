@@ -1,4 +1,11 @@
-<h1> This is the page where you will create new products</h1>
+<div class ="container">
+	<div class = "col-sm-offset-2">
+		<h1> Add new Product</h1>
+	</div>
 
 <%= render 'form' %>
- <%= link_to 'Back', products_path %>
+
+<div class = "col-sm-offset-2">
+ 	<%= link_to 'Back', products_path, class: 'btn btn-warning btn-sm' %>
+ </div>
+</div>

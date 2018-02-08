@@ -1,26 +1,24 @@
-<%= form_with model: @category, local: true do |form| %>
- 
-  <% if @category.errors.any? %>
-    <div id="error_explanation">
-      <h2>
-        <%= pluralize(@category.errors.count, "error") %> prohibited
-        this category from being saved:
-      </h2>
-      <ul>
-        <% @category.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
- 
-  <p>
-    <%= form.label :category_name %><br>
-    <%= form.text_field :categoryname %>
-  </p>
- 
-  <p>
-    <%= form.submit %>
-  </p>
+
+<%= render 'shared/errors', obj: @category %>
+<div class = 'row'>
+  <div class = 'col-xs-12'>
+      <%= form_for(@category, local: true, :html => {class: "form-horizontal", role: "form"}) do |form| %>
+
+      <div class = "form-group">
+        <div class = "control-label col-sm-2">
+          <%= form.label :Category %>
+        </div>
+        <div class = "row">
+        <div class = "col-md-4">
+           <%= form.text_field :categoryname, class: "form-control", placeholder: "Category Name", autofocus: true %>
+        </div>
+        <div class = "col-md-4">
+            <%= form.submit class: 'btn btn-primary btn-md' %>
+          </div>
+        </div>
+        </div>
+      </div>
  
 <% end %>
+</div>
+</div>

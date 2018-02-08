@@ -1,4 +1,10 @@
-<h1> This is the page where you will create new categories</h1>
-
-<%= render 'form' %>
- <%= link_to 'Back', categories_path %>
+<div class = "conatiner">
+	<div class = "col-sm-offset-2">
+		<h1> Add new Category</h1>
+	</div>
+	<p><br></p>
+	<%= render 'form' %>
+	<div class = 'col-sm-offset-2'>
+ 	<%= link_to 'Back', categories_path,class: 'btn btn-warning btn-sm'  %>
+ </div>
+ </div>
