@@ -1,0 +1,54 @@
+
+<div class = "container">
+	<h1>Suppliers</h1>
+	
+    <%= link_to 'Add New Supplier', new_supplier_path, class: 'btn btn-info btn-lg' %>
+    <p><br></p>
+    
+    <%= form_tag suppliers_path, :method => 'get' do %>
+	    <div class = "form-group">
+	    	<div class = "control-label col-sm-4">
+	       		<%= text_field_tag :search, params[:search], placeholder: "Search By Last Name Or First Name", class: "form-control" %>
+	       	</div>
+	       	<div class = "form-group">
+	       			<%= submit_tag "Search" ,:name => nil, class: 'btn btn-primary' %>
+	       	</div>
+	     </div>
+    <% end %>
+
+<% if @supplier.empty? %>
+<h1 align = "center"> Oops! </h1>
+<h3 align = "center">Your search was aborted due to one of the following reasons.</h3>
+<h4> <br>
+<ul>
+	<li>There are no suppliers created!</li>
+	<li>The supplier you are trying to find is not in the database.</li>
+</ul>
+</h4><br>
+ <p align = "center"><strong>Note: </strong>Please Make sure that you have typed the correct spelling.</p>
+<% else %>
+<table class = "table table-hover">
+	<thead>
+	<tr>
+		<th>Name</th>
+		<th>Phone</th>
+		<th>Address</th>
+		<th colspan = "5"></th>
+	</tr>
+   </thead>
+	<% @supplier.each do |cs| %>
+	  <tr>
+	  	<td><%= cs.firstname %> <%= cs.lastname %></td>
+	  	<td><%= cs.phone %></td>
+	  	<td><%= cs.address %></td>
+	  	<td><%= link_to 'Show', supplier_path(cs), class: 'btn btn-info btn-sm' %></td>
+	  	<td><%= link_to 'Edit', edit_supplier_path(cs), class: 'btn btn-primary btn-sm' %></td>
+	  	<td><%= link_to 'Destroy', supplier_path(cs),
+              method: :delete,
+              data: { confirm: 'Are you sure? If you Delete the customer, all its projects will also get deleted!' }, class: 'btn btn-danger btn-sm' %></td>
+	  </tr>
+	  <% end %>
+</table>
+<% end %>
+</div>
+
